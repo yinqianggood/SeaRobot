@@ -307,7 +307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello Chiuan!
+  m_Text: 'Hello '
 --- !u!1 &158054
 GameObject:
   m_ObjectHideFlags: 0
