@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\QuickCode\Scripts\CSharp\CodePanel.cs" />
     <Compile Include="Assets\Sample\Data\UDSkill.cs" />
     <Compile Include="Assets\Sample\GameManager\GameData.cs" />
     <Compile Include="Assets\Sample\GameManager\GameMain.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Sample\UIScript\UINotice.cs" />
     <Compile Include="Assets\Sample\UIScript\UISkillItem.cs" />
     <Compile Include="Assets\Sample\UIScript\UISkillPage.cs" />
+    <Compile Include="Assets\Sample\UIScript\UISystemStart.cs" />
     <Compile Include="Assets\Sample\UIScript\UITopBar.cs" />
     <Compile Include="Assets\UIFramework\Source\UIBind.cs" />
     <Compile Include="Assets\UIFramework\Source\UIPage.cs" />
@@ -674,6 +676,38 @@
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{CA68E921-6422-43BF-CEDF-BBD4B3559A86}</Project>
       <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.dotnet-exception-utils.csproj">
+      <Project>{12E14497-B952-F432-E354-9881F5713C44}</Project>
+      <Name>rotorz.dotnet-exception-utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.unity3d-reorderable-list.editor.csproj">
+      <Project>{481883A3-4594-6F4C-CAA7-9DFE89FBAE42}</Project>
+      <Name>rotorz.unity3d-reorderable-list.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.dotnet-type-utils.csproj">
+      <Project>{A6D8F673-5EB4-8C4C-FC54-D9F215F469F4}</Project>
+      <Name>rotorz.dotnet-type-utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.unity3d-reorderable-list.csproj">
+      <Project>{34458617-8314-725D-30D4-4BED2A574629}</Project>
+      <Name>rotorz.unity3d-reorderable-list</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.unity3d-package-utils.editor.csproj">
+      <Project>{960FB52F-37A8-ABAA-FFF8-673F31703317}</Project>
+      <Name>rotorz.unity3d-package-utils.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.unity3d-utils.editor.csproj">
+      <Project>{C65A4DBD-AA71-B280-DB00-DF6ED31E4DB4}</Project>
+      <Name>rotorz.unity3d-utils.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.unity3d-editor-menu.editor.csproj">
+      <Project>{D0C0300A-5992-1B16-BC13-D01201A20708}</Project>
+      <Name>rotorz.unity3d-editor-menu.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="rotorz.unity3d-utils.csproj">
+      <Project>{25B85614-8F98-1D5F-433A-4A46AE5FBF55}</Project>
+      <Name>rotorz.unity3d-utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

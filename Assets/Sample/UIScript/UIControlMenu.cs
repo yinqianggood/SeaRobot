@@ -13,7 +13,10 @@ public class UIControlMenu : UIPage
 
     public override void Awake(GameObject go)
     {
-      
+        this.transform.Find("ROVMenu/Btns/btn_System Start").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UISystemStart>();
+        });
     }
 
    
