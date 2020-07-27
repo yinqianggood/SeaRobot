@@ -8,7 +8,7 @@ public class GameMain : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
        
-        UIPage.ShowPage<UIControlMenu>();
+        UIPage.ShowPage<UITopBar>();
 
 		// var root = UIRoot.Instance;
     }
