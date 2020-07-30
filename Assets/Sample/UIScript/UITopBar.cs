@@ -5,7 +5,10 @@ using System;
 
 public class UITopBar : UIPage {
 
-    Action callback;
+    private static UITopBar instance;
+    public static UITopBar getInstance() { 
+     return instance;
+    }
     public UITopBar() : base(UIType.Fixed, UIMode.DoNothing, UICollider.None)
     {
         uiPath = "UIPrefab/UITopbar";

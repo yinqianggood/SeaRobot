@@ -17,5 +17,13 @@ public class UIROVMenu : UIPage
         {
             UIPage.ShowPage<UISystemStart>();
         });
+        this.transform.Find("Btns/btn_Main Control1").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIMainControl1>();
+        });
+        this.transform.Find("Btns/btn_Main Control2").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIMainControl2>();
+        });
     }
 }
