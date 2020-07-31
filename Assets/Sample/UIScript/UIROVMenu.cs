@@ -25,5 +25,9 @@ public class UIROVMenu : UIPage
         {
             UIPage.ShowPage<UIMainControl2>();
         });
+        this.transform.Find("Btns/btn_Pilot Flight").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIPilotFightScreen>();
+        });
     }
 }
