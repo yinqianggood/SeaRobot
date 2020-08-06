@@ -61,5 +61,18 @@ public class UIROVMenu : UIPage
         {
             UIPage.ShowPage<UIHCU2HiFlow>();
         });
+        this.transform.Find("Btns/btn_ROV Controls").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIROVControls>(); 
+        });
+        this.transform.Find("Btns/btn_Port Manipulator").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIPortManipulatorControls> ();
+        });
+
+        this.transform.Find("Btns/btn_Lamp Control").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UILampControls>();
+        });
     }
 }

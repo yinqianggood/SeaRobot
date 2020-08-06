@@ -9,10 +9,15 @@ public class Ruler : MonoBehaviour
     public Text txtValue;
     private float mValue = 0f;
     public Slider SL;
+    public bool usePercent = false;
+    private void Start()
+    {
+        txtValue.text = usePercent ? (SL.value * 100 / SL.maxValue).ToString("#0.00") + "%" : SL.value.ToString() + " Bar";
+    }
     public void SetValue(float value)
     {
         mValue = value;
-        txtValue.text = value.ToString() + " Bar";
+        txtValue.text = usePercent ? (value*100 /SL.maxValue).ToString("#0.00") +"%": value.ToString() + " Bar";
     }
     public void OnBtnClick(bool isAdd)
     {
@@ -22,7 +27,7 @@ public class Ruler : MonoBehaviour
         if (mValue >= SL.maxValue) mValue = SL.maxValue;
         if (mValue <= SL.minValue) mValue = SL.minValue;
         SL.normalizedValue = mValue / SL.maxValue;
-        txtValue.text = mValue.ToString() + " Bar";
+        txtValue.text = usePercent ? (mValue * 100 / SL.maxValue).ToString("#0.00") + "%" :  mValue.ToString() + " Bar";
       
     }
 }
