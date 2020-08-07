@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 4561473099189879503}
   - component: {fileID: 4561473099189879496}
   m_Layer: 5
-  m_Name: btn_Auxiliary Pory Control
+  m_Name: btn_Auxiliary Port Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

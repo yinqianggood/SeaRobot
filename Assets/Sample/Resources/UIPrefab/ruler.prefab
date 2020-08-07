@@ -1243,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtValue: {fileID: 34576105796150534}
   SL: {fileID: 833828527021892081}
+  usePercent: 0
 --- !u!1 &8079987698951446657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8079987699052652388
 RectTransform:
   m_ObjectHideFlags: 0

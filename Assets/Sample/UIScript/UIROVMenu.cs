@@ -74,5 +74,9 @@ public class UIROVMenu : UIPage
         {
             UIPage.ShowPage<UILampControls>();
         });
+        this.transform.Find("Btns/btn_Auxiliary Port Control").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIAuxilliaryPortControl>();
+        });
     }
 }
