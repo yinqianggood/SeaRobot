@@ -1482,7 +1482,7 @@ GameObject:
   - component: {fileID: 4561473099153650764}
   - component: {fileID: 4561473099153650765}
   m_Layer: 5
-  m_Name: btn_Auto Pitch/Roll
+  m_Name: btn_Auto Pitch_Roll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2904,7 +2904,7 @@ GameObject:
   - component: {fileID: 4561473100456606960}
   - component: {fileID: 4561473100456606961}
   m_Layer: 5
-  m_Name: btn_Auto Speed/Tracking
+  m_Name: btn_Auto Speed_Tracking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

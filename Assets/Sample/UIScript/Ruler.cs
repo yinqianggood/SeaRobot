@@ -10,24 +10,52 @@ public class Ruler : MonoBehaviour
     private float mValue = 0f;
     public Slider SL;
     public bool usePercent = false;
+    public bool isMiddle = false;
+    public enum TypeEnd
+    {
+        TYPE_None,
+        TYPE_Bar,
+        TYPE_Percent,
+        TYPE_Degree
+      
+    }
+    public TypeEnd typeEnd = TypeEnd.TYPE_Bar;
+    private string typeEndStr = "Bar";
     private void Start()
     {
-        txtValue.text = usePercent ? (SL.value * 100 / SL.maxValue).ToString("#0.00") + "%" : SL.value.ToString() + " Bar";
+        switch (typeEnd)
+        {
+            case TypeEnd.TYPE_None:
+                typeEndStr = "";
+                break;
+            case TypeEnd.TYPE_Bar:
+                typeEndStr = " Bar";
+                break;
+            case TypeEnd.TYPE_Percent:
+                typeEndStr = "%";
+                break;
+            case TypeEnd.TYPE_Degree:
+                typeEndStr = "°";
+                break;
+            default:
+                typeEndStr = "";
+                break;
+        }
+        mValue = SL.value;
+        txtValue.text = usePercent ? (mValue * 100 / SL.maxValue).ToString("#0.00") + typeEndStr : mValue.ToString() + typeEndStr;
     }
     public void SetValue(float value)
     {
         mValue = value;
-        txtValue.text = usePercent ? (value*100 /SL.maxValue).ToString("#0.00") +"%": value.ToString() + " Bar";
+        txtValue.text = usePercent ? (value * 100 / SL.maxValue).ToString("#0.00") + typeEndStr : value.ToString() + typeEndStr;
     }
     public void OnBtnClick(bool isAdd)
     {
-      
-        float temp = isAdd ? SL.maxValue / 10f : -SL.maxValue / 10f;
-        mValue = mValue + temp;
+        float tempValue = isMiddle ? (SL.maxValue - SL.minValue)  : SL.maxValue;
+        mValue =  isAdd ? tempValue/10+mValue :-tempValue/10+mValue;
         if (mValue >= SL.maxValue) mValue = SL.maxValue;
         if (mValue <= SL.minValue) mValue = SL.minValue;
-        SL.normalizedValue = mValue / SL.maxValue;
-        txtValue.text = usePercent ? (mValue * 100 / SL.maxValue).ToString("#0.00") + "%" :  mValue.ToString() + " Bar";
-      
+        SL.normalizedValue = isMiddle ? (0.5f + (mValue /tempValue) ): (mValue / tempValue);
+        txtValue.text = usePercent ? (mValue * 100 / SL.maxValue).ToString("#0.00") + typeEndStr : mValue.ToString() + typeEndStr;
     }
 }

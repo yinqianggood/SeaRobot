@@ -78,5 +78,13 @@ public class UIROVMenu : UIPage
         {
             UIPage.ShowPage<UIAuxilliaryPortControl>();
         });
+        this.transform.Find("Btns/btn_Auto Position").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIAutoPositioning>();
+        }); 
+        this.transform.Find("Btns/btn_Auto Pitch_Roll").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIAutoPitch_Roll>();
+        });
     }
 }
