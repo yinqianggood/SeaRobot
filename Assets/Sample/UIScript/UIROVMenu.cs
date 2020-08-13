@@ -63,11 +63,11 @@ public class UIROVMenu : UIPage
         });
         this.transform.Find("Btns/btn_ROV Controls").GetComponent<Button>().onClick.AddListener(() =>
         {
-            UIPage.ShowPage<UIROVControls>(); 
+            UIPage.ShowPage<UIROVControls>();
         });
         this.transform.Find("Btns/btn_Port Manipulator").GetComponent<Button>().onClick.AddListener(() =>
         {
-            UIPage.ShowPage<UIPortManipulatorControls> ();
+            UIPage.ShowPage<UIPortManipulatorControls>();
         });
 
         this.transform.Find("Btns/btn_Lamp Control").GetComponent<Button>().onClick.AddListener(() =>
@@ -81,10 +81,18 @@ public class UIROVMenu : UIPage
         this.transform.Find("Btns/btn_Auto Position").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UIAutoPositioning>();
-        }); 
+        });
         this.transform.Find("Btns/btn_Auto Pitch_Roll").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UIAutoPitch_Roll>();
         });
+        this.transform.Find("Btns/btn_Auto Speed_Tracking").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIAutoSpeed_Tracking>();
+        }); 
+        this.transform.Find("Btns/btn_Quick Function").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIQuickFunctionConfiguration> ();
+        }); 
     }
 }

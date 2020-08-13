@@ -17,7 +17,8 @@ public class Ruler : MonoBehaviour
         TYPE_Bar,
         TYPE_Percent,
         TYPE_Degree,
-        TYPE_Unit
+        TYPE_Unit,
+        TYPE_M_S
       
     }
     public TypeEnd typeEnd = TypeEnd.TYPE_Bar;
@@ -40,6 +41,9 @@ public class Ruler : MonoBehaviour
                 break;
             case TypeEnd.TYPE_Unit:
                 typeEndStr = "Units";
+                break;
+            case TypeEnd.TYPE_M_S:
+                typeEndStr = "m/s";
                 break;
             default:
                 typeEndStr = "";
