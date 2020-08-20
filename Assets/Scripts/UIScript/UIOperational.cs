@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIOperational : UIPage
 {
 
-    public UIOperational() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
+    public UIOperational() : base(UIType.Normal, UIMode.HideOther, UICollider.Normal)
     {
         uiPath = "UIPrefab/UIOperational";
     }
