@@ -6018,7 +6018,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Half
+  m_Text: 50%
 --- !u!1 &4246063742466225328
 GameObject:
   m_ObjectHideFlags: 0
@@ -12953,7 +12953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 73ea4e7ed289e524a88aa2f6a86a878e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b74ecf2f3aa52f4faa830bafb435158, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
