@@ -17,6 +17,10 @@ public class UITMSMenu : UIPage
         {
             UIPage.ShowPage<UITMSMainControl1>();
         });
+        this.transform.Find("btn_TMS Desk Control").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UITMSDesk>();
+        });
     }
     public override void Active()
     {
