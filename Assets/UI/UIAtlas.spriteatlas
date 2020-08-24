@@ -27,11 +27,11 @@ SpriteAtlas:
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
-      enableTightPacking: 1
+      enableTightPacking: 0
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: fe17b50049422254bb3f4b417fdf4b97, type: 3}
-    totalSpriteSurfaceArea: 1979217
+    totalSpriteSurfaceArea: 2276917
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -52,6 +52,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 001b97c14e199534aadfc4862abf73d0, type: 3}
   - {fileID: 21300000, guid: c6d1f2d1c5547fb43934aeaebec5c6c0, type: 3}
   - {fileID: 21300000, guid: 179649021edb4544cb05b3f37c66f96a, type: 3}
+  - {fileID: 21300000, guid: 98b11d025fa790544902b6de0d9ed7e8, type: 3}
   - {fileID: 21300000, guid: 2b56af22a79629042a6f14f68654c766, type: 3}
   - {fileID: 21300000, guid: 4e78d672ad61e3246acfeb7618b71086, type: 3}
   - {fileID: 21300000, guid: 437115a246ace294bbfc2ac53e1be836, type: 3}
@@ -86,12 +87,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3c2fb56627bca6148999ce80236e7231, type: 3}
   - {fileID: 21300000, guid: 33449576472dc0842ac7042da411616e, type: 3}
   - {fileID: 21300000, guid: 230e0c9689aa12e4795d947842c480c0, type: 3}
+  - {fileID: 21300000, guid: 856966e661eadcc4d9783202c2ed4462, type: 3}
   - {fileID: 21300000, guid: 50b111072f4e7d5489f7016d0bd6976f, type: 3}
   - {fileID: 21300000, guid: dc8fde07c6c917448ab30c94b1d6a5ed, type: 3}
   - {fileID: 21300000, guid: 0eb93d678632ea943bee68cb3222aea0, type: 3}
   - {fileID: 21300000, guid: 978d3177d458110458dc80a90df5e498, type: 3}
   - {fileID: 21300000, guid: 8311a3e7e93601348ae4c511fd219c11, type: 3}
   - {fileID: 21300000, guid: 90427218972b07d488a5764557b8ea61, type: 3}
+  - {fileID: 21300000, guid: dea608281ed225a48beedfeca290d0ae, type: 3}
   - {fileID: 21300000, guid: cdd7043835256fb4cbb9ad0c118926fa, type: 3}
   - {fileID: 21300000, guid: a192e14865024044f87b637a4616c66c, type: 3}
   - {fileID: 21300000, guid: 305de3583a4a4864da6c9622c61bca10, type: 3}
@@ -165,6 +168,7 @@ SpriteAtlas:
   - arrow Center
   - logo
   - icon_velocity
+  - camera 1
   - img3
   - compass
   - img6
@@ -199,12 +203,14 @@ SpriteAtlas:
   - bg1
   - up_normal
   - progress_bar
+  - TMS
   - red_button_on
   - "pressed_switchoff\u5907\u4EFD@2x"
   - stop
   - auto_functions_normal
   - circle_dot
   - down_pressed
+  - water_current
   - sl_background
   - power_boost2
   - Control_1
