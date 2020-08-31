@@ -10,7 +10,9 @@ public class MessageName
 {
     //更改标题.
     public const string MSG_CHANGE_TITTLE = "Msg_Change_Tittle";
-
-    //请根据项目的实际情况扩展更多的消息名...
+    public const string MSG_SHOW_BTN_BACK = "Msg_Show_Btn_Back";
 
 }
+
+    //请根据项目的实际情况扩展更多的消息名...
+    

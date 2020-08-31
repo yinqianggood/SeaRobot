@@ -7,7 +7,7 @@ public class UIROVControls : UIPage
 
     public UIROVControls() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
     {
-        uiPath = "UIPrefab/UIROV Controls";
+        uiPath = "UIPrefab/UIROV_Controls";
     }
 
     public override void Awake(GameObject go)
@@ -19,5 +19,6 @@ public class UIROVControls : UIPage
     {
         base.Active();
         MsgMng.Instance.Send(MessageName.MSG_CHANGE_TITTLE, new MessageData("ROV Controls"));
+        MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(true));
     }
 }

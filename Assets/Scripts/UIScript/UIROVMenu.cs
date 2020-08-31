@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class UIROVMenu : UIPage
         this.transform.Find("Btns/btn_System Start").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UISystemStart>();
+               
         });
         this.transform.Find("Btns/btn_Main Control1").GetComponent<Button>().onClick.AddListener(() =>
         {
@@ -60,16 +62,16 @@ public class UIROVMenu : UIPage
         this.transform.Find("Btns/btn_HCU 2 HI Flow").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UIHCU2HiFlow>();
+        }); 
+
+        this.transform.Find("Btns/btn_ROV_Pressurize").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIROV_Pressurize>();
         });
         this.transform.Find("Btns/btn_ROV Controls").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UIROVControls>();
         });
-        this.transform.Find("Btns/btn_Port Manipulator").GetComponent<Button>().onClick.AddListener(() =>
-        {
-            UIPage.ShowPage<UIPortManipulatorControls>();
-        });
-
         this.transform.Find("Btns/btn_Lamp Control").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UILampControls>();
@@ -93,13 +95,17 @@ public class UIROVMenu : UIPage
         this.transform.Find("Btns/btn_Quick Function").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UIQuickFunctionConfiguration> ();
-        }); 
+        });
+        Debug.Log("Awake");
     }
     public override void Active()
     {
         base.Active();
         MsgMng.Instance.Send(MessageName.MSG_CHANGE_TITTLE, new MessageData("ROV Menu"));
+        MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(false));
     }
 
    
+   
+
 }

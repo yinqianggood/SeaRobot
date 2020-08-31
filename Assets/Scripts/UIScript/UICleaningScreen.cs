@@ -18,5 +18,6 @@ public class UICleaningScreen : UIPage
     {
         base.Active();
         MsgMng.Instance.Send(MessageName.MSG_CHANGE_TITTLE, new MessageData("CleaningScreen"));
+        MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(true));
     }
 }

@@ -486,7 +486,7 @@
         /// </summary>
         public static void ClosePage()
         {
-            //Debug.Log("Back&Close PageNodes Count:" + m_currentPageNodes.Count);
+            Debug.Log("Back&Close PageNodes Count:" + m_currentPageNodes.Count);
 
             if (m_currentPageNodes == null || m_currentPageNodes.Count <= 1) return;
 

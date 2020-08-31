@@ -19,6 +19,7 @@ public class UIAutoSpeed_Tracking : UIPage
     {
         base.Active();
         MsgMng.Instance.Send(MessageName.MSG_CHANGE_TITTLE, new MessageData("Auto Speed/Tracking"));
+        MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(true));
     }
 
 

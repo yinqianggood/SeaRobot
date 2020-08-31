@@ -1916,7 +1916,7 @@ GameObject:
   - component: {fileID: 4561473099826184613}
   - component: {fileID: 4561473099826184614}
   m_Layer: 5
-  m_Name: btn_ROV Controls
+  m_Name: btn_ROV_Pressurize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2041,7 +2041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4561473099944461887
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3144,7 +3144,7 @@ GameObject:
   - component: {fileID: 5992334683815628700}
   - component: {fileID: 5992334683815628675}
   m_Layer: 5
-  m_Name: btn_Port Manipulator
+  m_Name: btn_ROV Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3796,7 +3796,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROV Controls
+  m_Text: ROV Pressurize
 --- !u!1 &6302214118471646930
 GameObject:
   m_ObjectHideFlags: 0
@@ -4426,7 +4426,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Port \nManipulator"
+  m_Text: ROV Controls
 --- !u!1 &6302214119395971980
 GameObject:
   m_ObjectHideFlags: 0

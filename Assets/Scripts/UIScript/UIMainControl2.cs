@@ -19,6 +19,7 @@ public class UIMainControl2 : UIPage
     {
         base.Active();
         MsgMng.Instance.Send(MessageName.MSG_CHANGE_TITTLE, new MessageData("Main Control2"));
+        MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(true));
     }
 
 

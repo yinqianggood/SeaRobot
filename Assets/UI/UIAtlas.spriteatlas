@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: fe17b50049422254bb3f4b417fdf4b97, type: 3}
-    totalSpriteSurfaceArea: 2276917
+    totalSpriteSurfaceArea: 2335981
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -49,6 +49,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 57eacd6106538244c9ba7a3c1e8e6fb6, type: 3}
   - {fileID: 21300000, guid: 9174208123665e340810a2d2c779a11e, type: 3}
   - {fileID: 21300000, guid: e8b4e6b182d843b4d996cb0b9f48c796, type: 3}
+  - {fileID: 21300000, guid: 3f695cb1c138f0f4085d08f3eae70063, type: 3}
   - {fileID: 21300000, guid: 001b97c14e199534aadfc4862abf73d0, type: 3}
   - {fileID: 21300000, guid: c6d1f2d1c5547fb43934aeaebec5c6c0, type: 3}
   - {fileID: 21300000, guid: 179649021edb4544cb05b3f37c66f96a, type: 3}
@@ -58,6 +59,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 437115a246ace294bbfc2ac53e1be836, type: 3}
   - {fileID: 21300000, guid: c045b9a202c6a4b4eb8d702f521f8b96, type: 3}
   - {fileID: 21300000, guid: 2d207fa2698af0e48a92edcb673c9f42, type: 3}
+  - {fileID: 21300000, guid: 0b74ecf2f3aa52f4faa830bafb435158, type: 3}
   - {fileID: 21300000, guid: 5fff0a03f7ec3c04eaa6941decd6e8b0, type: 3}
   - {fileID: 21300000, guid: 6024a8231de0e6c4cbdcee373a0118be, type: 3}
   - {fileID: 21300000, guid: 653df823c89c5374cac5a7911994a30a, type: 3}
@@ -75,6 +77,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c3b1012565c6efd4eaac05b6393fd61e, type: 3}
   - {fileID: 21300000, guid: 1f8d6e45faaaec748ab43ac9faa0d572, type: 3}
   - {fileID: 21300000, guid: e415ff756222526428280e0fe60b5065, type: 3}
+  - {fileID: 21300000, guid: a4c5cea5218c9c441b35aa059fe27f45, type: 3}
   - {fileID: 21300000, guid: ff05f4d5ae6d28c42ac56bec8681e98f, type: 3}
   - {fileID: 21300000, guid: 7daf04e517d5b0a49a0818779e1320ef, type: 3}
   - {fileID: 21300000, guid: 5cff1de5c1f0ba743a07deed5a083181, type: 3}
@@ -86,7 +89,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9e00316628568d64a9b40c23e3d878be, type: 3}
   - {fileID: 21300000, guid: 3c2fb56627bca6148999ce80236e7231, type: 3}
   - {fileID: 21300000, guid: 33449576472dc0842ac7042da411616e, type: 3}
+  - {fileID: 21300000, guid: 5c9bd8766c540994c8afd5764ccfa75d, type: 3}
   - {fileID: 21300000, guid: 230e0c9689aa12e4795d947842c480c0, type: 3}
+  - {fileID: 21300000, guid: a908a3b6b5718154ebfa99966c1ce925, type: 3}
   - {fileID: 21300000, guid: 856966e661eadcc4d9783202c2ed4462, type: 3}
   - {fileID: 21300000, guid: 50b111072f4e7d5489f7016d0bd6976f, type: 3}
   - {fileID: 21300000, guid: dc8fde07c6c917448ab30c94b1d6a5ed, type: 3}
@@ -137,7 +142,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2cd3c24e2b65eb24aa64e925c0fd8bcd, type: 3}
   - {fileID: 21300000, guid: 2750927e6c50f4e4983a068227666705, type: 3}
   - {fileID: 21300000, guid: 4a97d57ea208e344dac743c3774700d1, type: 3}
-  - {fileID: 21300000, guid: 73ea4e7ed289e524a88aa2f6a86a878e, type: 3}
   - {fileID: 21300000, guid: b70237be17539fb448539ceddec3bec1, type: 3}
   - {fileID: 21300000, guid: 93d3d8be9dad7e9428b5df86e072b1b2, type: 3}
   - {fileID: 21300000, guid: fc18dbfeb66957c408d0bf42646ddf64, type: 3}
@@ -146,6 +150,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3e297e4f70a01cf4d85c2d3d487d6e29, type: 3}
   - {fileID: 21300000, guid: 0a4b617f28d1666478d616601f8b0471, type: 3}
   - {fileID: 21300000, guid: 1c823cbfddc1fdf44ae1b9de5b363d61, type: 3}
+  - {fileID: 21300000, guid: 4ed7dfbf570c82e4b8e8d46beda1eb54, type: 3}
   - {fileID: 21300000, guid: 45ae52df976056841a1dc2ae41b08a08, type: 3}
   - {fileID: 21300000, guid: 2afc46ef9d18acf439199d9791518b4a, type: 3}
   - {fileID: 21300000, guid: 64b1b6ef3b6d082478778378b1053e61, type: 3}
@@ -165,6 +170,7 @@ SpriteAtlas:
   - bg_pressed
   - Off@2x
   - arrow_
+  - cleaning_screen
   - arrow Center
   - logo
   - icon_velocity
@@ -174,6 +180,7 @@ SpriteAtlas:
   - img6
   - east
   - On@2x
+  - propeller
   - img_ruler
   - histogram
   - light_red@2x(1)
@@ -191,6 +198,7 @@ SpriteAtlas:
   - light_red_G@2x
   - arrow_short
   - tg_on
+  - release_sequence
   - south
   - rectangle_normal
   - unhealthy
@@ -202,7 +210,9 @@ SpriteAtlas:
   - tg_unselected
   - bg1
   - up_normal
+  - mute
   - progress_bar
+  - btn_back
   - TMS
   - red_button_on
   - "pressed_switchoff\u5907\u4EFD@2x"
@@ -253,7 +263,6 @@ SpriteAtlas:
   - img1
   - img0
   - img5
-  - propeller
   - arrow_left_normal
   - rectangle_pressed
   - Spirit_level
@@ -262,6 +271,7 @@ SpriteAtlas:
   - down_normal
   - icon_gyro
   - arrow_TurnR
+  - btn_close
   - background2
   - bg_black
   - img_ship

@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 1191200880876982707}
   - component: {fileID: 9200994140663782819}
   m_Layer: 5
-  m_Name: bg_Config2
+  m_Name: bg_PortManipulator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2599,7 +2599,7 @@ GameObject:
   - component: {fileID: 7632725968857442955}
   - component: {fileID: 1075407626695596405}
   m_Layer: 5
-  m_Name: tg_Config2
+  m_Name: tg_Port Manipulator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4357,7 +4357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Config 2
+  m_Text: Port Manipulator
 --- !u!1 &9032735486917986556
 GameObject:
   m_ObjectHideFlags: 0
