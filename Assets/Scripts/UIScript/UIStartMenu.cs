@@ -32,7 +32,11 @@ public class UIStartMenu : UIPage
         {
             UIPage.ShowPage<UILampControls>();
         });
-
+        
+        this.transform.Find("btn_ROVControl").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UIROVControls>();
+        });
     }
     public override void Active()
     {
