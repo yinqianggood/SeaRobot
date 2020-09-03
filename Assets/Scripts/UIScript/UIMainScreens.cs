@@ -17,18 +17,18 @@ public class UIMainScreens :  UIPage
         {
             UIPage.ShowPage<UIOperational>();
         });
-        this.transform.Find("btn_Flying").GetComponent<Button>().onClick.AddListener(() =>
-        {
-            UIPage.ShowPage<UIFlying>();
-        });
+        //this.transform.Find("btn_Flying").GetComponent<Button>().onClick.AddListener(() =>
+        //{
+        //    UIPage.ShowPage<UIFlying>();
+        //});
         this.transform.Find("btn_System Status").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UISystemStatus>();
         });
-        this.transform.Find("btn_Alarm Summary").GetComponent<Button>().onClick.AddListener(() =>
-        {
-            UIPage.ShowPage<UIAlarmSummary>();
-        });
+        //this.transform.Find("btn_Alarm Summary").GetComponent<Button>().onClick.AddListener(() =>
+        //{
+        //    UIPage.ShowPage<UIAlarmSummary>();
+        //});
         this.transform.Find("btn_Deck Checks1").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UIROV_DeckChecks>();
@@ -101,6 +101,14 @@ public class UIMainScreens :  UIPage
         this.transform.Find("btn_Auto Position").GetComponent<Button>().onClick.AddListener(() =>
         {
             UIPage.ShowPage<UIROV_AutoPositionInterlocks>();
+        });
+        this.transform.Find("btn_TMS Main Control1").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UITMSMainControl1>();
+        });
+        this.transform.Find("btn_TMS Desk Control").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            UIPage.ShowPage<UITMSDesk>();
         });
 
     }

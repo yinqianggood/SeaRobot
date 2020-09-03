@@ -23,9 +23,9 @@ public class UITopBar : UIPage {
         btnBack.GetComponent<Button>().onClick.AddListener(() => { UIPage.ClosePage(); });
         this.gameObject.transform.Find("TagMenu/tg_Start Menu").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => { if (isOn) { UIPage.ShowPage<UIStartMenu>(); } });
         this.gameObject.transform.Find("TagMenu/tg_ROV Menu").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn)=> { if (isOn) { UIPage.ShowPage<UIROVMenu>();} });
-        this.gameObject.transform.Find("TagMenu/tg_Main Screens").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => { if (isOn) { UIPage.ShowPage<UIMainScreens>(); btnBack.SetActive(false); } });
-        this.gameObject.transform.Find("TagMenu/tg_TMS Displays").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => { if (isOn) { UIPage.ShowPage<UITMSDisplays>(); btnBack.SetActive(false); } });
-        this.gameObject.transform.Find("TagMenu/tg_TMS Menu").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => { if (isOn) { UIPage.ShowPage<UITMSMenu>(); btnBack.SetActive(false); } });
+        this.gameObject.transform.Find("TagMenu/tg_Main Screens").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => { if (isOn) { UIPage.ShowPage<UIMainScreens>(); } });
+        this.gameObject.transform.Find("TagMenu/tg_TMS Displays").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => { if (isOn) { UIPage.ShowPage<UITMSDisplays>();  } });
+        this.gameObject.transform.Find("TagMenu/tg_TMS Menu").GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => { if (isOn) { UIPage.ShowPage<UITMSMenu>();  } });
  
 
 

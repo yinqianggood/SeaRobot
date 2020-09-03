@@ -857,7 +857,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Flying
+  m_Text: 'TMS
+
+    Main Control'
 --- !u!1 &1368172561717000745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,7 +1759,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Alarm \nSummary"
+  m_Text: 'TMS
+
+    Desk Control'
 --- !u!1 &1368172563017251066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,7 +3164,7 @@ GameObject:
   - component: {fileID: 2922559009177684536}
   - component: {fileID: 2922559009177684539}
   m_Layer: 5
-  m_Name: btn_Alarm Summary
+  m_Name: btn_TMS Desk Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3533,7 +3537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2922559009413355031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4225,7 +4229,7 @@ GameObject:
   - component: {fileID: 2922559010024381810}
   - component: {fileID: 2922559010024381821}
   m_Layer: 5
-  m_Name: btn_Flying
+  m_Name: btn_TMS Main Control1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
