@@ -130,14 +130,15 @@ MonoBehaviour:
   armNodeRote: {fileID: 0}
   armFinger1: {fileID: 0}
   armFinger2: {fileID: 0}
-  propellers:
-  - {fileID: 6401987232026434082}
-  - {fileID: 9111620316246079829}
-  - {fileID: 2883793915705220536}
+  H_Propellers:
   - {fileID: 9040082465972426876}
   - {fileID: 8396640892387001491}
   - {fileID: 3010555326057404509}
   - {fileID: 210701552894089131}
+  V_Propellers:
+  - {fileID: 6401987232026434082}
+  - {fileID: 9111620316246079829}
+  - {fileID: 2883793915705220536}
 --- !u!1 &8300603994189817455
 GameObject:
   m_ObjectHideFlags: 0
