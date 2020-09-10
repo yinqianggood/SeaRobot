@@ -37,6 +37,20 @@ public class RobotControl : MonoBehaviour
       Both=3
 
     }
+
+    public enum ARMDIR 
+    {
+      Left=1,
+      Right=2,
+      Up=3,
+      Down=4,
+      Long=5,
+      Short=6,
+      In=7,
+      Out=8,
+      TurnL = 9,
+      TurnR = 10,
+    }
     private Rigidbody _rb ;
     private void Awake()
     {
@@ -60,19 +74,19 @@ public class RobotControl : MonoBehaviour
         DIR dir = (DIR)direct;
         switch (dir)
         {
-            case DIR.Foward:
+            case DIR.Left:
                 ROV.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
                 ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
                 break;
-            case DIR.Back:
+            case DIR.Right:
                 ROV.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
                 ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
                 break;
-            case DIR.Left:
+            case DIR.Foward:
                 ROV.transform.Translate(new Vector3(0,0,-speed * Time.deltaTime));
                 ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
                 break;
-            case DIR.Right:
+            case DIR.Back:
                 ROV.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
                 ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
                 break;
@@ -97,9 +111,6 @@ public class RobotControl : MonoBehaviour
             default:
                 break;
         }
-       
-
-
     }
 
     public void CameraRote(int direct)
@@ -118,6 +129,53 @@ public class RobotControl : MonoBehaviour
                 break;
             case DIR.Right:
                 cam_Pan_Tilt.transform.Rotate(new Vector3(0,  5 * Time.deltaTime, 0));
+                break;
+            default:
+                break;
+        }
+    }
+    public void ArmControl(int dir)
+    {
+        ARMDIR ad = (ARMDIR)dir;
+        switch (ad)
+        {
+            case ARMDIR.Left:
+                armNote1.transform.Rotate(new Vector3(0, -10 * Time.deltaTime,0));
+                break;
+            case ARMDIR.Right:
+                armNote1.transform.Rotate(new Vector3(0, 10 * Time.deltaTime, 0));
+                break;
+            case ARMDIR.Up:
+                armNote1.transform.Rotate(new Vector3(0, 0,10 * Time.deltaTime));
+                break;
+            case ARMDIR.Down:
+                armNote1.transform.Rotate(new Vector3(0, 0, -10 * Time.deltaTime));
+                break;
+            case ARMDIR.Long:
+                if(armNode2.transform.localPosition.y<0.45f)
+                {
+                    armNode2.transform.Translate(0, 0.05f * Time.deltaTime, 0);
+                }
+                break;
+            case ARMDIR.Short:
+                if (armNode2.transform.localPosition.y >0.3f)
+                {
+                    armNode2.transform.Translate(0, -0.05f * Time.deltaTime, 0);
+                }
+                break;
+            case ARMDIR.In:
+                armFinger1.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
+                armFinger2.transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
+                break;
+            case ARMDIR.Out:
+                armFinger1.transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
+                armFinger2.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
+                break;
+            case ARMDIR.TurnL:
+                armNodeRote.transform.Rotate(new Vector3(0,10*Time.deltaTime,0));
+                break;
+            case ARMDIR.TurnR:
+                armNodeRote.transform.Rotate(new Vector3(0, -10 * Time.deltaTime, 0));
                 break;
             default:
                 break;
@@ -143,4 +201,6 @@ public class RobotControl : MonoBehaviour
         }
        
     }
+
+    
 }

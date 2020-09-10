@@ -65,6 +65,46 @@ public class UIROVControls : UIPage
         {
             mRC.CameraRote(4);
         });
+        this.transform.Find("bg_left/Arm/btn_arrow_TurnOut").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(8);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_TurnIn").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(7);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_TurnL").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(9);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_TurnR").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(10);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_TurnLong").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(5); ;
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_TurnShort").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(6);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_Up").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(3);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_Down").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(4);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_Left").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(1);
+        });
+        this.transform.Find("bg_left/Arm/btn_arrow_Right").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.ArmControl(2);
+        });
     }
 
     public override void Active()

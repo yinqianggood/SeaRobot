@@ -31,12 +31,13 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: fe17b50049422254bb3f4b417fdf4b97, type: 3}
-    totalSpriteSurfaceArea: 2335981
+    totalSpriteSurfaceArea: 2357613
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 0de6b50027139f74694df11ed35994a5, type: 3}
   - {fileID: 21300000, guid: 6709782069c9cd8468077ca983bf3290, type: 3}
+  - {fileID: 21300000, guid: b6b0f4403ffea0944b092878973c1b31, type: 3}
   - {fileID: 21300000, guid: d436dd50a221be448984c52b565d0090, type: 3}
   - {fileID: 21300000, guid: fb825f605f093344da58ba5551c9953a, type: 3}
   - {fileID: 21300000, guid: e6c28470330a8574e8dfea5e6ac67052, type: 3}
@@ -134,6 +135,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a4a328ecc2862aa488c7ea2b36f245c4, type: 3}
   - {fileID: 21300000, guid: 33f38ffc07dda4e4b8095d424de46e81, type: 3}
   - {fileID: 21300000, guid: 8720543df07302941a481313f40757a2, type: 3}
+  - {fileID: 21300000, guid: 599cce5dbfcb8a844b14d72847713cdd, type: 3}
   - {fileID: 21300000, guid: d30d1acd50a9ea541b6ccfb85c1ebe09, type: 3}
   - {fileID: 21300000, guid: e9b0c40e0379e6044a5b4e42cd615bb6, type: 3}
   - {fileID: 21300000, guid: 490a921ef2bf4504d8e17c9b750f05c7, type: 3}
@@ -158,6 +160,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - up_pressed
   - camera
+  - btn_arrow_up1
   - btn_thrust
   - Control_2
   - green_button_on
@@ -255,6 +258,7 @@ SpriteAtlas:
   - arrow_down_normal
   - healthy
   - west
+  - btn_arrow_down1
   - green_button_off
   - tg_selected
   - bg

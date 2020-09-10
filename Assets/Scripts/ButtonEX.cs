@@ -16,7 +16,7 @@ public class ButtonEX : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     private float recordTime;
 
     public UnityEvent onClickDown = new UnityEvent();//按下时调用  
-    public UnityEvent onPress = new UnityEvent();//按住时调用  
+    public UnityEvent onPress = new UnityEvent();//按住时调用  ；；
     public UnityEvent onRelease = new UnityEvent();//松开时调用 
 
     void Start()
