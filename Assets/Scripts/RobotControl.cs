@@ -7,16 +7,46 @@ public class RobotControl : MonoBehaviour
 {
     public GameObject ROV;
     public GameObject TMS;
-    public GameObject cam_Pan_Tilt;
     public GameObject armNote1;
     public GameObject armNode2;
+    public GameObject armNode3;
     public GameObject armNodeRote;
     public GameObject armFinger1;
     public GameObject armFinger2;
 
     public List<Transform> H_Propellers = new List<Transform>();
     public List<Transform> V_Propellers = new List<Transform>();
-    private float mPropSpeed = 500;
+    private float mPropSpeed = 1000;
+
+    public List<GameObject> lamp_port_STBD;
+    public List<GameObject> lamp_bullet_PT;
+    public List<GameObject> lamp_bottomPT;
+    public Light light_bullet;
+    public Light light_pt;
+    public Light light_pt_bottom;
+    public Light light_port;
+    public Light light_STBD;
+  
+
+
+    public GameObject PT_RoteteH;
+    public GameObject PT_RoteteV;
+    public GameObject PT_BottomRoteteH;
+    public GameObject PT_BottomRotateV;
+
+    //作为单例类
+    private static RobotControl instance;
+    public static RobotControl Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new RobotControl();
+            }
+            return instance;
+        }
+    }
 
     public enum DIR
     { 
@@ -59,7 +89,8 @@ public class RobotControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       // LampControl(true,false,true,true);
+        //lamp_bottomPT[0].gameObject.GetComponent<MeshRenderer>().sharedMaterial.DisableKeyword("_EMISSION");
     }
 
     // Update is called once per frame
@@ -83,11 +114,11 @@ public class RobotControl : MonoBehaviour
                 ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
                 break;
             case DIR.Foward:
-                ROV.transform.Translate(new Vector3(0,0,-speed * Time.deltaTime));
+                ROV.transform.Translate(new Vector3(0,0,speed * Time.deltaTime));
                 ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
                 break;
             case DIR.Back:
-                ROV.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+                ROV.transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime));
                 ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
                 break;
             case DIR.Up:
@@ -115,20 +146,22 @@ public class RobotControl : MonoBehaviour
 
     public void CameraRote(int direct)
     {
+        GameObject ptH = ControlData.Instance.curPT == 1 ? PT_RoteteH : PT_BottomRoteteH;
+        GameObject ptV = ControlData.Instance.curPT == 1 ? PT_RoteteV : PT_BottomRotateV;
         DIR dir = (DIR)direct;
         switch (dir)
         {
             case DIR.Foward:
-                cam_Pan_Tilt.transform.Rotate(new Vector3(5 * Time.deltaTime, 0, 0));
+                ptV.transform.Rotate(new Vector3(5 * Time.deltaTime, 0, 0));
                 break;
             case DIR.Back:
-                cam_Pan_Tilt.transform.Rotate(new Vector3(-5 * Time.deltaTime, 0, 0));
+                ptV.transform.Rotate(new Vector3(-5 * Time.deltaTime, 0, 0));
                 break;
             case DIR.Left:
-                cam_Pan_Tilt.transform.Rotate(new Vector3(0, -5 * Time.deltaTime, 0));
+                ptH.transform.Rotate(new Vector3(0, -5 * Time.deltaTime, 0));
                 break;
             case DIR.Right:
-                cam_Pan_Tilt.transform.Rotate(new Vector3(0,  5 * Time.deltaTime, 0));
+                ptH.transform.Rotate(new Vector3(0,  5 * Time.deltaTime, 0));
                 break;
             default:
                 break;
@@ -146,29 +179,29 @@ public class RobotControl : MonoBehaviour
                 armNote1.transform.Rotate(new Vector3(0, 10 * Time.deltaTime, 0));
                 break;
             case ARMDIR.Up:
-                armNote1.transform.Rotate(new Vector3(0, 0,10 * Time.deltaTime));
+                armNode2.transform.Rotate(new Vector3(0, 0,10 * Time.deltaTime));
                 break;
             case ARMDIR.Down:
-                armNote1.transform.Rotate(new Vector3(0, 0, -10 * Time.deltaTime));
+                armNode2.transform.Rotate(new Vector3(0, 0, -10 * Time.deltaTime));
                 break;
             case ARMDIR.Long:
-                if(armNode2.transform.localPosition.y<0.45f)
+                if(armNode3.transform.localPosition.y<0.65f)
                 {
-                    armNode2.transform.Translate(0, 0.05f * Time.deltaTime, 0);
+                    armNode3.transform.Translate(0, 0.05f * Time.deltaTime, 0);
                 }
                 break;
             case ARMDIR.Short:
-                if (armNode2.transform.localPosition.y >0.3f)
+                if (armNode3.transform.localPosition.y >0.4f)
                 {
-                    armNode2.transform.Translate(0, -0.05f * Time.deltaTime, 0);
+                    armNode3.transform.Translate(0, -0.05f * Time.deltaTime, 0);
                 }
                 break;
             case ARMDIR.In:
-                armFinger1.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
+                armFinger1.transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
                 armFinger2.transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
                 break;
             case ARMDIR.Out:
-                armFinger1.transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
+                armFinger1.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
                 armFinger2.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
                 break;
             case ARMDIR.TurnL:
@@ -202,5 +235,44 @@ public class RobotControl : MonoBehaviour
        
     }
 
-    
-}
+    public  void LampControl(bool showPortSTBD,bool showBulletPT,bool showBottomPT,bool showAll)
+    {
+        light_port.gameObject.SetActive(showPortSTBD || showAll);
+        light_STBD.gameObject.SetActive(showPortSTBD || showAll);
+        light_bullet.gameObject.SetActive(showBulletPT || showAll);
+        light_pt.gameObject.SetActive(showBulletPT || showAll);
+        light_pt_bottom.gameObject.SetActive(showBottomPT || showAll);
+        for (int i = 0; i < lamp_port_STBD.Count; i++)
+            {
+                if (showPortSTBD || showAll)
+                    lamp_port_STBD[i].gameObject.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+                else
+                    lamp_port_STBD[i].gameObject.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+            }
+
+            for (int i = 0; i < lamp_bullet_PT.Count; i++)
+            {
+                
+                if (showBulletPT || showAll)
+                    lamp_bullet_PT[i].gameObject.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+                else
+                    lamp_bullet_PT[i].gameObject.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+            }
+
+            for (int i = 0; i < lamp_bottomPT.Count; i++)
+            {
+               
+                if(showBottomPT || showAll)
+                    lamp_bottomPT[i].gameObject.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+                else
+                    lamp_bottomPT[i].gameObject.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+            }
+        }
+
+       
+    }
+
+
+
+
+

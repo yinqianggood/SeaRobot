@@ -15,8 +15,8 @@ public class UIROVControls : UIPage
 
     public override void Awake(GameObject go)
     {
-       
-       
+
+        mRC = GameObject.FindObjectOfType<RobotControl>();
         this.transform.Find("bg_right/ROVBody/btn_arrow_foward").GetComponent<ButtonEX>().onPress.AddListener(() =>
         {
             mRC.MoveROV(1, 1);
@@ -112,8 +112,8 @@ public class UIROVControls : UIPage
         base.Active();
         MsgMng.Instance.Send(MessageName.MSG_CHANGE_TITTLE, new MessageData("ROV Controls"));
         MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(true));
-        goRC = GameObject.Instantiate(Resources.Load("RobotControl")) as GameObject;
-        mRC = goRC.GetComponent<RobotControl>();
+        //goRC = GameObject.Instantiate(Resources.Load("RobotControl")) as GameObject;
+        //mRC = goRC.GetComponent<RobotControl>();
 
 
     }

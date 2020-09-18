@@ -52,6 +52,7 @@ public class UITopBar : UIPage {
        
         MsgMng.Instance.Register(MessageName.MSG_SHOW_BTN_BACK, SetBackBtn);
         //UIPage.ShowPage<UIROVMenu>();//default show first page--UIROVMenu.
+      GameObject  goRC = GameObject.Instantiate(Resources.Load("RobotControl")) as GameObject;
     }
   
     public override void Hide()
