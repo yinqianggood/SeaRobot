@@ -155,6 +155,7 @@ MonoBehaviour:
   PT_RoteteV: {fileID: 137737404554494911}
   PT_BottomRoteteH: {fileID: 6170026810140093324}
   PT_BottomRotateV: {fileID: 843925704701176610}
+  flotPan: {fileID: 4694507548133712177}
 --- !u!1001 &8823859132778856166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,6 +384,12 @@ Transform:
 --- !u!4 &1601380649366547002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7804063149504845020, guid: 56353291fe5ec1a4297be443808cd6af,
+    type: 3}
+  m_PrefabInstance: {fileID: 8823859132778856166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4694507548133712177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4274646806953517015, guid: 56353291fe5ec1a4297be443808cd6af,
     type: 3}
   m_PrefabInstance: {fileID: 8823859132778856166}
   m_PrefabAsset: {fileID: 0}

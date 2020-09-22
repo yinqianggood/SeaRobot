@@ -34,6 +34,8 @@ public class RobotControl : MonoBehaviour
     public GameObject PT_BottomRoteteH;
     public GameObject PT_BottomRotateV;
 
+    public GameObject flotPan;
+
     //作为单例类
     private static RobotControl instance;
     public static RobotControl Instance
@@ -205,10 +207,10 @@ public class RobotControl : MonoBehaviour
                 armFinger2.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
                 break;
             case ARMDIR.TurnL:
-                armNodeRote.transform.Rotate(new Vector3(0,10*Time.deltaTime,0));
+                armNodeRote.transform.Rotate(new Vector3(0,-10*Time.deltaTime,0));
                 break;
             case ARMDIR.TurnR:
-                armNodeRote.transform.Rotate(new Vector3(0, -10 * Time.deltaTime, 0));
+                armNodeRote.transform.Rotate(new Vector3(0, 10 * Time.deltaTime, 0));
                 break;
             default:
                 break;
@@ -268,6 +270,25 @@ public class RobotControl : MonoBehaviour
                     lamp_bottomPT[i].gameObject.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
             }
         }
+
+    public void FlotControl(bool isIn)
+    {
+      float speed=isIn ? -1:1;
+        if (flotPan.transform.localPosition.z > 1)
+        {
+            flotPan.transform.localPosition = new Vector3(flotPan.transform.localPosition.x, flotPan.transform.localPosition.y, 1);
+        }
+        else if (flotPan.transform.localPosition.z < 0)
+        {
+            flotPan.transform.localPosition = new Vector3(flotPan.transform.localPosition.x, flotPan.transform.localPosition.y, 0);
+        }
+        else
+            flotPan.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+
+
+        
+      
+    }
 
        
     }

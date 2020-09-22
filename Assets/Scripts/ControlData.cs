@@ -20,7 +20,6 @@ public class ControlData
             return _instance;
         }
     }
-
     public int curPT = 2;//当前操作云台 1--上方云台 2--下方云台.
 
 }

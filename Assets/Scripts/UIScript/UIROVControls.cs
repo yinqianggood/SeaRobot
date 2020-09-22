@@ -105,6 +105,14 @@ public class UIROVControls : UIPage
         {
             mRC.ArmControl(2);
         });
+        this.transform.Find("middle/btn_flot_up").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.FlotControl(false);
+        });
+        this.transform.Find("middle/btn_flot_down").GetComponent<ButtonEX>().onPress.AddListener(() =>
+        {
+            mRC.FlotControl(true);
+        });
     }
 
     public override void Active()
