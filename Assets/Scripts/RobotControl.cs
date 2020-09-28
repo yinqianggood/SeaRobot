@@ -199,10 +199,15 @@ public class RobotControl : MonoBehaviour
                 }
                 break;
             case ARMDIR.In:
+                Vector3 v3 = getAngle(armFinger1.transform);
+                Debug.Log("v3.x:" + v3.x);
+                if (v3.x >20f) return;
                 armFinger1.transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
                 armFinger2.transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
                 break;
             case ARMDIR.Out:
+                Vector3 v = getAngle(armFinger1.transform);
+                if (v.x < -30f) return;
                 armFinger1.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
                 armFinger2.transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
                 break;
@@ -215,6 +220,45 @@ public class RobotControl : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    Vector3 getAngle(Transform t)
+    {
+        Vector3 angle = t.eulerAngles;
+        float x = angle.x;
+        float y = angle.y;
+        float z = angle.z;
+        if (Vector3.Dot(transform.up,Vector3.up)>=0f)
+        {
+            if(angle.x>=0f&&angle.x<=90f)
+            {
+                x = angle.x;
+            }
+            if(angle.x>=270f && angle.x<=360f)
+            {
+                x = angle.x - 360f;
+            }
+        }
+        if (Vector3.Dot(transform.up, Vector3.up) < 0)
+        {
+            if (angle.x >= 0f && angle.x <= 90f)
+            {
+                x = 180f - angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f)
+            {
+                x = 180f - angle.x;
+            }
+        }
+        if (angle.y > 180)
+        {
+            y = angle.y - 360f;
+        }
+        if (angle.z > 180)
+        {
+            y = angle.z - 360f;
+        }
+        return new Vector3(x, y, z);
     }
 
     private void ThrusterControl(float speed,PROPDIR pd)
