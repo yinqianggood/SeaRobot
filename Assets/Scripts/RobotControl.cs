@@ -52,6 +52,7 @@ public class RobotControl : MonoBehaviour
 
     public enum DIR
     { 
+       None=0,
        Foward=1,
        Back=2,
        Left=3,
@@ -110,36 +111,44 @@ public class RobotControl : MonoBehaviour
             case DIR.Left:
                 ROV.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
                 ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_LEFT, new MessageData((int)DIR.Left));
                 break;
             case DIR.Right:
                 ROV.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
                 ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_RIGHT, new MessageData((int)DIR.Right));
                 break;
             case DIR.Foward:
                 ROV.transform.Translate(new Vector3(0,0,speed * Time.deltaTime));
                 ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_FWD, new MessageData((int)DIR.Foward));
                 break;
             case DIR.Back:
                 ROV.transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime));
                 ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_BWD, new MessageData((int)DIR.Back));
                 break;
             case DIR.Up:
                 ROV.transform.Translate(new Vector3(0, speed * Time.deltaTime,0));
                 ThrusterControl(mPropSpeed, PROPDIR.Vertical);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_UP, new MessageData((int)DIR.Up));
                 break;
             case DIR.Down:
                 // _rb.velocity = transform.forward* Time.deltaTime * 2;
                 //ROV.transform.position -= transform.up * Time.deltaTime * speed;
                 ROV.transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
                 ThrusterControl(-mPropSpeed, PROPDIR.Vertical);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_DOWN, new MessageData((int)DIR.Down));
                 break;
             case DIR.TurnL:
                 ROV.transform.Rotate(new Vector3(0, -speed * 5 * Time.deltaTime, 0));
                 ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_TURN_L, new MessageData((int)DIR.TurnL));
                 break;
             case DIR.TurnR:
                 ROV.transform.Rotate(new Vector3(0, speed* 5 * Time.deltaTime, 0));
                 ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
+                MsgMng.Instance.Send(MessageName.MSG_MOVE_TURN_R, new MessageData((int)DIR.TurnR));
                 break;
             default:
                 break;

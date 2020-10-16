@@ -22,3 +22,5 @@ public class UIOperational : UIPage
         MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(true));
     }
 }
+
+
