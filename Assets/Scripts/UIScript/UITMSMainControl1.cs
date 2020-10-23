@@ -12,7 +12,8 @@ public class UITMSMainControl1 : UIPage
 
     public override void Awake(GameObject go)
     {
-
+        this.transform.Find("bg_left/btn_release_sequence").GetComponent<Button>().onClick.AddListener(
+           () => { ControlData.Instance.Release_Sequence_isOn = 1; });
     }
     public override void Active()
     {

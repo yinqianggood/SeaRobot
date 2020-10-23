@@ -20,9 +20,28 @@ public class ControlData
             return _instance;
         }
     }
+    public int ROVPOD_isOn = 0;
+    public int ROVMOTOR_isOn = 0;
+    public int ALLROVLAMP_isOn = 0;
+    public int Release_Sequence_isOn = 0;
+    public int LoadPump_isOn = 0;
+    public int ThrustEnabled_isOn = 0;
+    public int STBDMainipulator_isOm= 0;
+    public int SystemPressureValue_isOn = 0;
+    
+
     public int curPT = 2;//当前操作云台 1--上方云台 2--下方云台.
     public float curDepth=1000;//当前深度.
     public float curSpeed = 0.1f;//0.1m/s.
+
+    //判断是否具备启动条件
+    public bool GetReady
+    {
+        get {
+            int sum = ROVPOD_isOn + ROVMOTOR_isOn + ALLROVLAMP_isOn + Release_Sequence_isOn + LoadPump_isOn + ThrustEnabled_isOn + STBDMainipulator_isOm + SystemPressureValue_isOn;
+            return sum == 8;
+        }
+    }
 
     //前后运动速度.
     public float GetSpeedSurge

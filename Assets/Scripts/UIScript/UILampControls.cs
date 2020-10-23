@@ -48,7 +48,7 @@ public class UILampControls : UIPage
 
             }
         }
-       
+        ControlData.Instance.ALLROVLAMP_isOn = (tg1.isOn || tg2.isOn || tg3.isOn || tgAll.isOn) ? 1 : 0;
 
     }
 

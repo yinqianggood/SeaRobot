@@ -12,7 +12,10 @@ public class UIROVDesk : UIPage
 
     public override void Awake(GameObject go)
     {
-
+        this.transform.Find("bg1/img_pod/tg_start").GetComponent<Toggle>().onValueChanged.AddListener(
+            (bool isOn) => { ControlData.Instance.ROVPOD_isOn = isOn ? 1 : 0; });
+        this.transform.Find("bg1/img_motor/tg_start").GetComponent<Toggle>().onValueChanged.AddListener(
+            (bool isOn) => { ControlData.Instance.ROVMOTOR_isOn = isOn ? 1 : 0; });
     }
     public override void Active()
     {

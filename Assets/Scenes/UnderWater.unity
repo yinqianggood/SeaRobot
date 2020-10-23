@@ -115229,14 +115229,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1919969073, guid: cb1c0927b3f5dc845bff15dc476e80e7, type: 3}
-      propertyPath: txt_flow_from
-      value: 
-      objectReference: {fileID: 2122660808}
-    - target: {fileID: 1351434128169402107, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+    - target: {fileID: 2055644714297691522, guid: cb1c0927b3f5dc845bff15dc476e80e7,
         type: 3}
       propertyPath: m_Text
-      value: 5 Deg
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667548665920614323, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850934223462367066, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866323525395448087, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 4310861085380627587, guid: cb1c0927b3f5dc845bff15dc476e80e7,
         type: 3}
@@ -115348,10 +115359,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7551997511521261678, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+    - target: {fileID: 6267242551221571216, guid: cb1c0927b3f5dc845bff15dc476e80e7,
         type: 3}
       propertyPath: m_Text
-      value: 0.05 m/s
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246636066295894124, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609762561087255725, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114429345091933710, guid: cb1c0927b3f5dc845bff15dc476e80e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb1c0927b3f5dc845bff15dc476e80e7, type: 3}
@@ -124972,15 +124998,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2098276723}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2122660808 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1351434128169402107, guid: cb1c0927b3f5dc845bff15dc476e80e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1919969068}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
