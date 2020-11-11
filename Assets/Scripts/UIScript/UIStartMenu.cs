@@ -36,7 +36,7 @@ public class UIStartMenu : UIPage
         this.transform.Find("btn_ROVControl").GetComponent<Button>().onClick.AddListener(() =>
         {
             
-            if (ControlData.Instance.GetReady)
+          //  if (ControlData.Instance.GetReady)
             UIPage.ShowPage<UIROVControls>();
         });
     }

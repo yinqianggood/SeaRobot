@@ -2,7 +2,7 @@
 //记录各个界面控件操作数据.
 public class ControlData 
 {
-    private static volatile ControlData _instance;
+    private static ControlData _instance;
     private static object _lock = new object();
 
     public static ControlData Instance

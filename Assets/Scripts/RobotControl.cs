@@ -85,6 +85,8 @@ public class RobotControl : MonoBehaviour
       TurnR = 10,
     }
     private Rigidbody _rb ;
+    private string mDirStr;
+    bool isDoing = true;
     private void Awake()
     {
         _rb = ROV.GetComponent<Rigidbody>();
@@ -99,7 +101,65 @@ public class RobotControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        mDirStr = UDPServer.instance.recvStr;
+      //  if(isDoing)
+        MoveROV(mDirStr);
+    }
+
+    public void MoveROV(string dirStr, float speed = 1, Boolean isPress = true)
+    {
+        if(dirStr==NetConfig.rov_left_on)
+        {
+            ROV.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+            ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_LEFT, new MessageData((int)DIR.Left));
+        }
+        else if(dirStr==NetConfig.rov_right_on)
+        {
+            ROV.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+            ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_RIGHT, new MessageData((int)DIR.Right));
+        }
+        else if (dirStr == NetConfig.rov_up_on)
+        {
+            ROV.transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+            ThrusterControl(mPropSpeed, PROPDIR.Vertical);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_UP, new MessageData((int)DIR.Up));
+        }
+        else if (dirStr == NetConfig.rov_down_on)
+        {
+            ROV.transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+            ThrusterControl(-mPropSpeed, PROPDIR.Vertical);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_DOWN, new MessageData((int)DIR.Down));
+        }
+        else if (dirStr == NetConfig.rov_foward_on)
+        {
+            ROV.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+            ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_FWD, new MessageData((int)DIR.Foward));
+        }
+        else if (dirStr == NetConfig.rov_back_on)
+        {
+            ROV.transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime));
+            ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_BWD, new MessageData((int)DIR.Back));
+        }
+        else if (dirStr == NetConfig.rov_turn_left_on)
+        {
+            ROV.transform.Rotate(new Vector3(0, -speed * 5 * Time.deltaTime, 0));
+            ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_TURN_L, new MessageData((int)DIR.TurnL));
+        }
+        else if (dirStr == NetConfig.rov_turn_right_on)
+        {
+            ROV.transform.Rotate(new Vector3(0, speed * 5 * Time.deltaTime, 0));
+            ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
+            MsgMng.Instance.Send(MessageName.MSG_MOVE_TURN_R, new MessageData((int)DIR.TurnR));
+        }
+        else
+        { }
+
+        // isDoing = false;
     }
 
     public void MoveROV(int direct,float speed=1,Boolean isPress=true)

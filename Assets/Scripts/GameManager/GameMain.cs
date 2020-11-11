@@ -11,6 +11,7 @@ public class GameMain : MonoBehaviour {
         UIPage.ShowPage<UITopBar>();
 
 		// var root = UIRoot.Instance;
+		
     }
 	
 	// Update is called once per frame
