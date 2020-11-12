@@ -33,9 +33,26 @@ public class UILampControls : UIPage
     }
     private void SetLamp(bool isOn,int type)
     {
-        rc.LampControl(tg1.isOn, tg2.isOn, tg3.isOn, tgAll.isOn);
-        if (type==4)
+       // rc.LampControl(tg1.isOn, tg2.isOn, tg3.isOn, tgAll.isOn);
+        if (type==1)
         {
+            string strdata = tg1.isOn ? NetConfig.lamp_port_stbd_on : NetConfig.lamp_port_stbd_off;
+            UDPClient.instance.Send(strdata);
+        }
+        else if(type==2)
+        {
+            string strdata = tg2.isOn ? NetConfig.lamp_bullet_pt_on : NetConfig.lamp_bullet_pt_off;
+            UDPClient.instance.Send(strdata);
+        }
+        else if (type == 3)
+        {
+            string strdata = tg3.isOn ? NetConfig.lamp_bottom_pt_on : NetConfig.lamp_bottom_pt_off;
+            UDPClient.instance.Send(strdata);
+        }
+       else
+        {
+            string strdata = tgAll.isOn ? NetConfig.lamp_all_on : NetConfig.lamp_all_off;
+            UDPClient.instance.Send(strdata);
             for (int i = 1; i <= 6; i++)
             {
                 Toggle tg = transform.Find(string.Format("rulers/bg{0}/Toggle{1}", i, i)).GetComponent<Toggle>();

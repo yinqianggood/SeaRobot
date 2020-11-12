@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,15 +33,35 @@ public class NetConfig
     public const string arm_left = "arm_left";
     public const string arm_right = "arm_right";
     public const string arm_turn_right = "arm_turn_right";//按下右转.
+    public const string arm_turn_left = "arm_turn_left";//按下左转.
     public const string arm_open = "arm_open";//打开机械爪.
+    public const string arm_close= "arm_close";//关闭机械爪.
 
-  
+
 
     //云台相机运动指令.
     public const string cam_up = "cam_up";//向上.
     public const string cam_down = "cam_down";
     public const string cam_left = "cam_left";
     public const string cam_right = "cam_right";
+
+
+    //托盘前后运动.
+    public const string flot_foward = "flot_foward";
+    public const string flot_back = "flot_back";
+
+    //灯光控制.
+    public const string lamp_port_stbd_on = "lamp_port_stbd_on";
+    public const string lamp_port_stbd_off = "lamp_port_stbd_off";
+    public const string lamp_bullet_pt_on = "lamp_bullet_pt_on";
+    public const string lamp_bullet_pt_off = "lamp_bullet_pt_off";
+    public const string lamp_bottom_pt_on = "lamp_bottom_pt_on";
+    public const string lamp_bottom_pt_off = "lamp_bottom_pt_off";
+    public const string lamp_all_on= "lamp_all_on";
+    public const string lamp_all_off = "lamp_all_off";
+
+
+
 
 
 

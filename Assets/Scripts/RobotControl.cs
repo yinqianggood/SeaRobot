@@ -85,7 +85,7 @@ public class RobotControl : MonoBehaviour
       TurnR = 10,
     }
     private Rigidbody _rb ;
-    private string mDirStr;
+    private string mDataStr;
     bool isDoing = true;
     private void Awake()
     {
@@ -101,71 +101,201 @@ public class RobotControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mDirStr = UDPServer.instance.recvStr;
-      //  if(isDoing)
-        MoveROV(mDirStr);
+        mDataStr = UDPServer.instance.recvStr;
+        //  if(isDoing)
+        if (mDataStr.Contains("rov_"))
+            MoveROV(mDataStr);
+        else if (mDataStr.Contains("arm_"))
+            MoveArm(mDataStr);
+        else if (mDataStr.Contains("cam_"))
+            MoveCamera(mDataStr);
+        else if (mDataStr.Contains("flat_"))
+            MoveFlot(mDataStr);
+        else if (mDataStr.Contains("lamp_"))
+            LampControl(mDataStr);
+        else
+        {
+            print("receive:" + mDataStr);
+        }
     }
 
+    /// <summary>
+    /// socket receive
+    /// </summary>
+    /// <param name="dirStr"></param>
+    /// <param name="speed"></param>
+    /// <param name="isPress"></param>
     public void MoveROV(string dirStr, float speed = 1, Boolean isPress = true)
     {
         if(dirStr==NetConfig.rov_left_on)
         {
-            ROV.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
-            ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_LEFT, new MessageData((int)DIR.Left));
+            MoveROV(DIR.Left);
         }
         else if(dirStr==NetConfig.rov_right_on)
         {
-            ROV.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
-            ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_RIGHT, new MessageData((int)DIR.Right));
+            MoveROV(DIR.Right);
         }
         else if (dirStr == NetConfig.rov_up_on)
         {
-            ROV.transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
-            ThrusterControl(mPropSpeed, PROPDIR.Vertical);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_UP, new MessageData((int)DIR.Up));
+            MoveROV(DIR.Up);
         }
         else if (dirStr == NetConfig.rov_down_on)
         {
-            ROV.transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
-            ThrusterControl(-mPropSpeed, PROPDIR.Vertical);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_DOWN, new MessageData((int)DIR.Down));
+            MoveROV(DIR.Down);
         }
         else if (dirStr == NetConfig.rov_foward_on)
         {
-            ROV.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-            ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_FWD, new MessageData((int)DIR.Foward));
+            MoveROV(DIR.Foward);
         }
         else if (dirStr == NetConfig.rov_back_on)
         {
-            ROV.transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime));
-            ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_BWD, new MessageData((int)DIR.Back));
+            MoveROV(DIR.Back);
         }
         else if (dirStr == NetConfig.rov_turn_left_on)
         {
-            ROV.transform.Rotate(new Vector3(0, -speed * 5 * Time.deltaTime, 0));
-            ThrusterControl(-mPropSpeed, PROPDIR.Horizontal);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_TURN_L, new MessageData((int)DIR.TurnL));
+            MoveROV(DIR.TurnL);
         }
         else if (dirStr == NetConfig.rov_turn_right_on)
         {
-            ROV.transform.Rotate(new Vector3(0, speed * 5 * Time.deltaTime, 0));
-            ThrusterControl(mPropSpeed, PROPDIR.Horizontal);
-            MsgMng.Instance.Send(MessageName.MSG_MOVE_TURN_R, new MessageData((int)DIR.TurnR));
+            MoveROV(DIR.TurnR);
         }
         else
-        { }
+        {
+            Debug.LogWarning("unvaliad rov direction message:"+dirStr);
+        }
 
         // isDoing = false;
     }
 
-    public void MoveROV(int direct,float speed=1,Boolean isPress=true)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="dataStr"></param>
+    public void MoveArm(string dataStr)
+    {
+        if(dataStr==NetConfig.arm_foward)
+        {
+            ArmControl(ARMDIR.Long);
+        }
+        else if(dataStr==NetConfig.arm_back)
+        {
+            ArmControl(ARMDIR.Short);
+        }
+        else if (dataStr == NetConfig.arm_left)
+        {
+            ArmControl(ARMDIR.Left);
+        }
+        else if (dataStr == NetConfig.arm_right)
+        {
+            ArmControl(ARMDIR.Right);
+        }
+        else if (dataStr == NetConfig.arm_up)
+        {
+            ArmControl(ARMDIR.Up);
+        }
+        else if (dataStr == NetConfig.arm_down)
+        {
+            ArmControl(ARMDIR.Down);
+        }
+        else if (dataStr == NetConfig.arm_turn_left)
+        {
+            ArmControl(ARMDIR.TurnL);
+        }
+        else if (dataStr == NetConfig.arm_turn_right)
+        {
+            ArmControl(ARMDIR.TurnR);
+        }
+        else if (dataStr == NetConfig.arm_open)
+        {
+            ArmControl(ARMDIR.Out);
+        }
+        else if (dataStr == NetConfig.arm_close)
+        {
+            ArmControl(ARMDIR.In);
+        }
+        else
+        {
+            Debug.LogWarning("unvaliad arm direction message:" + dataStr);
+        }
+       
+    }
+
+    public void MoveCamera(string dataStr)
+    {
+        if(dataStr==NetConfig.cam_up)
+        {
+            CameraRote(DIR.Up);
+        }
+        else if(dataStr==NetConfig.arm_down)
+        {
+            CameraRote(DIR.Down);
+        }
+        else if (dataStr == NetConfig.arm_left)
+        {
+            CameraRote(DIR.Left);
+        }
+        else if (dataStr == NetConfig.arm_right)
+        {
+            CameraRote(DIR.Right);
+        }
+        else
+        {
+            Debug.LogWarning("unvaliad camera direction message:" + dataStr);
+        }
+    }
+
+    public void MoveFlot(string dataStr)
+    {
+        bool isIn = dataStr == NetConfig.flot_back ? true : false;
+        FlotControl(isIn);
+    }
+    bool tg1_isOn, tg2_isOn, tg3_isOn, tgAll_isOn = false;
+    public void LampControl(string dataStr)
+    {
+        
+        if(dataStr==NetConfig.lamp_port_stbd_on)
+        {
+            tg1_isOn = true;
+        }
+        else if (dataStr == NetConfig.lamp_port_stbd_off)
+        {
+            tg1_isOn = false;
+        }
+        else if (dataStr == NetConfig.lamp_bullet_pt_on)
+        {
+            tg2_isOn = true;
+        }
+        else if (dataStr == NetConfig.lamp_bullet_pt_off)
+        {
+            tg2_isOn = false;
+        }
+        else if (dataStr == NetConfig.lamp_bottom_pt_on)
+        {
+            tg3_isOn = true;
+        }
+        else if (dataStr == NetConfig.lamp_bottom_pt_off)
+        {
+            tg3_isOn = false;
+        }
+        else if (dataStr == NetConfig.lamp_all_on)
+        {
+            tgAll_isOn = true;
+        }
+        else if (dataStr == NetConfig.lamp_all_off)
+        {
+            tgAll_isOn = false;
+        }
+        else
+        {
+            Debug.LogWarning("unvaliad lamp toggle message:" + dataStr);
+        }
+        LampControl(tg1_isOn, tg2_isOn, tg3_isOn, tgAll_isOn);
+
+    }
+    public void MoveROV(DIR dir, float speed=1,Boolean isPress=true)
     {
        
-        DIR dir = (DIR)direct;
+        //DIR dir = (DIR)direct;
         switch (dir)
         {
             case DIR.Left:
@@ -215,11 +345,11 @@ public class RobotControl : MonoBehaviour
         }
     }
 
-    public void CameraRote(int direct)
+    public void CameraRote(DIR dir)
     {
         GameObject ptH = ControlData.Instance.curPT == 1 ? PT_RoteteH : PT_BottomRoteteH;
         GameObject ptV = ControlData.Instance.curPT == 1 ? PT_RoteteV : PT_BottomRotateV;
-        DIR dir = (DIR)direct;
+       // DIR dir = (DIR)direct;
         switch (dir)
         {
             case DIR.Foward:
@@ -238,10 +368,9 @@ public class RobotControl : MonoBehaviour
                 break;
         }
     }
-    public void ArmControl(int dir)
+    public void ArmControl(ARMDIR dir)
     {
-        ARMDIR ad = (ARMDIR)dir;
-        switch (ad)
+        switch (dir)
         {
             case ARMDIR.Left:
                 armNote1.transform.Rotate(new Vector3(0, -10 * Time.deltaTime,0));
