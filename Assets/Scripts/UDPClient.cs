@@ -12,7 +12,7 @@ public class UDPClient : MonoBehaviour
     public static UDPClient instance;
     public string recvStr;
     public string UDPClientIP;
-    Socket socket;
+    public Socket socket;
     EndPoint serverEnd;
     IPEndPoint ipEnd;
 

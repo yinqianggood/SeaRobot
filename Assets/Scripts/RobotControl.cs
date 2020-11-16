@@ -101,22 +101,26 @@ public class RobotControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         mDataStr = UDPServer.instance.recvStr;
         //  if(isDoing)
+        if (string.IsNullOrEmpty(mDataStr)) return;
         if (mDataStr.Contains("rov_"))
             MoveROV(mDataStr);
         else if (mDataStr.Contains("arm_"))
             MoveArm(mDataStr);
         else if (mDataStr.Contains("cam_"))
             MoveCamera(mDataStr);
-        else if (mDataStr.Contains("flat_"))
+        else if (mDataStr.Contains("flot_"))
             MoveFlot(mDataStr);
         else if (mDataStr.Contains("lamp_"))
             LampControl(mDataStr);
         else
         {
-            print("receive:" + mDataStr);
+            return;
+           
         }
+        
     }
 
     /// <summary>
@@ -162,6 +166,7 @@ public class RobotControl : MonoBehaviour
         else
         {
             Debug.LogWarning("unvaliad rov direction message:"+dirStr);
+            return;
         }
 
         // isDoing = false;
@@ -173,81 +178,94 @@ public class RobotControl : MonoBehaviour
     /// <param name="dataStr"></param>
     public void MoveArm(string dataStr)
     {
-        if(dataStr==NetConfig.arm_foward)
+        if(dataStr==NetConfig.arm_foward_on)
         {
             ArmControl(ARMDIR.Long);
         }
-        else if(dataStr==NetConfig.arm_back)
+        else if(dataStr==NetConfig.arm_back_on)
         {
             ArmControl(ARMDIR.Short);
         }
-        else if (dataStr == NetConfig.arm_left)
+        else if (dataStr == NetConfig.arm_left_on)
         {
             ArmControl(ARMDIR.Left);
         }
-        else if (dataStr == NetConfig.arm_right)
+        else if (dataStr == NetConfig.arm_right_on)
         {
             ArmControl(ARMDIR.Right);
         }
-        else if (dataStr == NetConfig.arm_up)
+        else if (dataStr == NetConfig.arm_up_on)
         {
             ArmControl(ARMDIR.Up);
         }
-        else if (dataStr == NetConfig.arm_down)
+        else if (dataStr == NetConfig.arm_down_on)
         {
             ArmControl(ARMDIR.Down);
         }
-        else if (dataStr == NetConfig.arm_turn_left)
+        else if (dataStr == NetConfig.arm_turn_left_on)
         {
             ArmControl(ARMDIR.TurnL);
         }
-        else if (dataStr == NetConfig.arm_turn_right)
+        else if (dataStr == NetConfig.arm_turn_right_on)
         {
             ArmControl(ARMDIR.TurnR);
         }
-        else if (dataStr == NetConfig.arm_open)
+        else if (dataStr == NetConfig.arm_open_on)
         {
             ArmControl(ARMDIR.Out);
         }
-        else if (dataStr == NetConfig.arm_close)
+        else if (dataStr == NetConfig.arm_close_on)
         {
             ArmControl(ARMDIR.In);
         }
         else
         {
-            Debug.LogWarning("unvaliad arm direction message:" + dataStr);
+          //  Debug.LogWarning("unvaliad arm direction message:" + dataStr);
+            return;
         }
        
     }
 
     public void MoveCamera(string dataStr)
     {
-        if(dataStr==NetConfig.cam_up)
+        if(dataStr==NetConfig.cam_up_on)
         {
-            CameraRote(DIR.Up);
+            CameraRote(DIR.Foward);
         }
-        else if(dataStr==NetConfig.arm_down)
+        else if(dataStr==NetConfig.cam_down_on)
         {
-            CameraRote(DIR.Down);
+            CameraRote(DIR.Back);
         }
-        else if (dataStr == NetConfig.arm_left)
+        else if (dataStr == NetConfig.cam_left_on)
         {
             CameraRote(DIR.Left);
         }
-        else if (dataStr == NetConfig.arm_right)
+        else if (dataStr == NetConfig.cam_right_on)
         {
             CameraRote(DIR.Right);
         }
         else
         {
-            Debug.LogWarning("unvaliad camera direction message:" + dataStr);
+          //  Debug.LogWarning("unvaliad camera direction message:" + dataStr);
         }
     }
 
     public void MoveFlot(string dataStr)
     {
-        bool isIn = dataStr == NetConfig.flot_back ? true : false;
-        FlotControl(isIn);
+        int speed = 0;
+        if(dataStr== NetConfig.flot_back_on)
+        {
+            speed = -1;
+        }
+        else if(dataStr==NetConfig.flot_foward_on)
+        {
+            speed = 1;
+        }
+        else
+        {
+            speed = 0;
+        }
+        FlotControl(speed);
     }
     bool tg1_isOn, tg2_isOn, tg3_isOn, tgAll_isOn = false;
     public void LampControl(string dataStr)
@@ -513,9 +531,9 @@ public class RobotControl : MonoBehaviour
             }
         }
 
-    public void FlotControl(bool isIn)
+    public void FlotControl(int speed)
     {
-      float speed=isIn ? -1:1;
+      //float speed=isIn ? -1:1;
         if (flotPan.transform.localPosition.z > 1)
         {
             flotPan.transform.localPosition = new Vector3(flotPan.transform.localPosition.x, flotPan.transform.localPosition.y, 1);

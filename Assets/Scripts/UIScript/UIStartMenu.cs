@@ -45,6 +45,6 @@ public class UIStartMenu : UIPage
         base.Active();
         MsgMng.Instance.Send(MessageName.MSG_CHANGE_TITTLE, new MessageData("ROV Menu"));
         MsgMng.Instance.Send(MessageName.MSG_SHOW_BTN_BACK, new MessageData(false));
-        this.transform.Find("btn_ROVControl/txt_warning").gameObject.SetActive(!ControlData.Instance.GetReady);
+       // this.transform.Find("btn_ROVControl/txt_warning").gameObject.SetActive(!ControlData.Instance.GetReady);
     }
 }

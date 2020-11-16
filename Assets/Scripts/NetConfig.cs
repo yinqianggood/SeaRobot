@@ -25,30 +25,46 @@ public class NetConfig
     public const string rov_turn_left_on = "rov_turn_left_on";//开启左转.
     public const string rov_turn_left_off = "rov_turn_left_off";//关闭左转.
 
-    //机械臂运动指令 因机械臂操作对精度要求高 所以屏蔽惯性 去掉off因素.
-    public const string arm_up = "arm_up";//按上.
-    public const string arm_down = "arm_down";
-    public const string arm_foward = "arm_foward";
-    public const string arm_back = "arm_back";
-    public const string arm_left = "arm_left";
-    public const string arm_right = "arm_right";
-    public const string arm_turn_right = "arm_turn_right";//按下右转.
-    public const string arm_turn_left = "arm_turn_left";//按下左转.
-    public const string arm_open = "arm_open";//打开机械爪.
-    public const string arm_close= "arm_close";//关闭机械爪.
+    //机械臂运动指令 
+    public const string arm_up_on = "arm_up_on";//按上.
+    public const string arm_up_off = "arm_up_off";//停止按上.
+    public const string arm_down_on = "arm_down_on";
+    public const string arm_down_off = "arm_down_off";
+    public const string arm_foward_on = "arm_foward_on";
+    public const string arm_foward_off = "arm_foward_off";
+    public const string arm_back_on = "arm_back_on";
+    public const string arm_back_off = "arm_back_off";
+    public const string arm_left_on = "arm_left_on";
+    public const string arm_left_off = "arm_left_off";
+    public const string arm_right_on = "arm_right_on";
+    public const string arm_right_off = "arm_right_off";
+    public const string arm_turn_right_on = "arm_turn_right_on";//按下右转.
+    public const string arm_turn_right_off = "arm_turn_right_off";//停止按下右转.
+    public const string arm_turn_left_on = "arm_turn_left_on";//按下左转.
+    public const string arm_turn_left_off = "arm_turn_left_off";//停止按下左转.
+    public const string arm_open_on = "arm_open_on";//打开机械爪.
+    public const string arm_open_off = "arm_open_off";//停止打开机械爪.
+    public const string arm_close_on = "arm_close_on";//关闭机械爪.
+    public const string arm_close_off = "arm_close_off";//停止关闭机械爪.
 
 
 
     //云台相机运动指令.
-    public const string cam_up = "cam_up";//向上.
-    public const string cam_down = "cam_down";
-    public const string cam_left = "cam_left";
-    public const string cam_right = "cam_right";
+    public const string cam_up_on = "cam_up_on";//向上.
+    public const string cam_up_off = "cam_up_off";//停止向上.
+    public const string cam_down_on = "cam_down_on";
+    public const string cam_down_off = "cam_down_off";
+    public const string cam_left_on = "cam_left_on";
+    public const string cam_left_off = "cam_left_off";
+    public const string cam_right_on = "cam_right_on";
+    public const string cam_right_off = "cam_right_off";
 
 
     //托盘前后运动.
-    public const string flot_foward = "flot_foward";
-    public const string flot_back = "flot_back";
+    public const string flot_foward_on = "flot_foward_on";
+    public const string flot_foward_off= "flot_foward_off";
+    public const string flot_back_on = "flot_back_on";
+    public const string flot_back_off = "flot_back_off";
 
     //灯光控制.
     public const string lamp_port_stbd_on = "lamp_port_stbd_on";

@@ -58,9 +58,8 @@ public class UDPServer : MonoBehaviour
         {
             recvData = new byte[1024];
             recvLen = socket.ReceiveFrom(recvData, ref clientEnd);
-            print("connected:"+clientEnd.ToString());
             recvStr = Encoding.UTF8.GetString(recvData,0,recvLen);
-
+            print("connected:" + clientEnd.ToString() + " Length:" + recvLen+"  recvStr:"+recvStr);
         }
     }
 

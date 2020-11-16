@@ -18,6 +18,7 @@ public class UIROVControls : UIPage
         //rov
         Transform t_rov_left = this.transform.Find("bg_right/ROVBody/btn_arrow_left");
         EventTriggerListener.Get(t_rov_left).onDown += (t) => { UDPClient.instance.Send(NetConfig.rov_left_on); };
+        //EventTriggerListener.Get(t_rov_left).onDown += (t) => { UDPClient.instance.Send("按下ButtonL.UP"); };
         EventTriggerListener.Get(t_rov_left).onUp += (t) => { UDPClient.instance.Send(NetConfig.rov_left_off); };
         Transform t_rov_right = this.transform.Find("bg_right/ROVBody/btn_arrow_right");
         EventTriggerListener.Get(t_rov_right).onDown += (t) => { UDPClient.instance.Send(NetConfig.rov_right_on); };
@@ -39,45 +40,61 @@ public class UIROVControls : UIPage
         EventTriggerListener.Get(t_rov_turnL).onUp += (t) => { UDPClient.instance.Send(NetConfig.rov_turn_left_off); };
         Transform t_rov_turnR = this.transform.Find("bg_right/ROVBody/btn_arrow_TrunR");
         EventTriggerListener.Get(t_rov_turnR).onDown += (t) => { UDPClient.instance.Send(NetConfig.rov_turn_right_on); };
-        EventTriggerListener.Get(t_rov_turnR).onUp += (t) => { UDPClient.instance.Send(NetConfig.rov_turn_right_on); };
+        EventTriggerListener.Get(t_rov_turnR).onUp += (t) => { UDPClient.instance.Send(NetConfig.rov_turn_right_off); };
 
         //arms.
         Transform t_arm_foward = this.transform.Find("bg_left/Arm/btn_arrow_TurnLong");
-        EventTriggerListener.Get(t_arm_foward).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_foward); };
+        EventTriggerListener.Get(t_arm_foward).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_foward_on); };
+        EventTriggerListener.Get(t_arm_foward).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_foward_off); };
         Transform t_arm_back = this.transform.Find("bg_left/Arm/btn_arrow_TurnShort");
-        EventTriggerListener.Get(t_arm_back).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_back); };
+        EventTriggerListener.Get(t_arm_back).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_back_on); };
+        EventTriggerListener.Get(t_arm_back).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_back_off); };
         Transform t_arm_up = this.transform.Find("bg_left/Arm/btn_arrow_Up");
-        EventTriggerListener.Get(t_arm_up).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_up); };
+        EventTriggerListener.Get(t_arm_up).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_up_on); };
+        EventTriggerListener.Get(t_arm_up).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_up_off); };
         Transform t_arm_down = this.transform.Find("bg_left/Arm/btn_arrow_Down");
-        EventTriggerListener.Get(t_arm_down).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_down); };
+        EventTriggerListener.Get(t_arm_down).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_down_on); };
+        EventTriggerListener.Get(t_arm_down).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_down_off); };
         Transform t_arm_left = this.transform.Find("bg_left/Arm/btn_arrow_Left");
-        EventTriggerListener.Get(t_arm_left).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_left); };
+        EventTriggerListener.Get(t_arm_left).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_left_on); };
+        EventTriggerListener.Get(t_arm_left).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_left_off); };
         Transform t_arm_right = this.transform.Find("bg_left/Arm/btn_arrow_Right");
-        EventTriggerListener.Get(t_arm_right).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_right); };
+        EventTriggerListener.Get(t_arm_right).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_right_on); };
+        EventTriggerListener.Get(t_arm_right).onUp+= (t) => { UDPClient.instance.Send(NetConfig.arm_right_off); };
         Transform t_arm_turnL = this.transform.Find("bg_left/Arm/btn_arrow_TurnL");
-        EventTriggerListener.Get(t_arm_turnL).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_turn_left); };
+        EventTriggerListener.Get(t_arm_turnL).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_turn_left_on); };
+        EventTriggerListener.Get(t_arm_turnL).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_turn_left_off); };
         Transform t_arm_turnR = this.transform.Find("bg_left/Arm/btn_arrow_TurnR");
-        EventTriggerListener.Get(t_arm_turnR).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_turn_right); };
+        EventTriggerListener.Get(t_arm_turnR).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_turn_right_on); };
+        EventTriggerListener.Get(t_arm_turnR).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_turn_right_off); };
         Transform t_arm_open = this.transform.Find("bg_left/Arm/btn_arrow_TurnOut");
-        EventTriggerListener.Get(t_arm_open).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_open); };
+        EventTriggerListener.Get(t_arm_open).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_open_on); };
+        EventTriggerListener.Get(t_arm_open).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_open_off); };
         Transform t_arm_close = this.transform.Find("bg_left/Arm/btn_arrow_TurnIn");
-        EventTriggerListener.Get(t_arm_close).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_close); };
+        EventTriggerListener.Get(t_arm_close).onDown += (t) => { UDPClient.instance.Send(NetConfig.arm_close_on); };
+        EventTriggerListener.Get(t_arm_close).onUp += (t) => { UDPClient.instance.Send(NetConfig.arm_close_off); };
 
         //camPT.
         Transform t_cam_up = this.transform.Find("bg_yuntai/btn_arrow_foward");
-        EventTriggerListener.Get(t_cam_up).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_up); };
+        EventTriggerListener.Get(t_cam_up).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_up_on); };
+        EventTriggerListener.Get(t_cam_up).onUp += (t) => { UDPClient.instance.Send(NetConfig.cam_up_off); };
         Transform t_cam_down = this.transform.Find("bg_yuntai/btn_arrow_back");
-        EventTriggerListener.Get(t_cam_down).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_down); };
+        EventTriggerListener.Get(t_cam_down).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_down_on); };
+        EventTriggerListener.Get(t_cam_down).onUp += (t) => { UDPClient.instance.Send(NetConfig.cam_down_off); };
         Transform t_cam_left = this.transform.Find("bg_yuntai/btn_arrow_left");
-        EventTriggerListener.Get(t_cam_up).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_left); };
+        EventTriggerListener.Get(t_cam_left).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_left_on); };
+        EventTriggerListener.Get(t_cam_left).onUp += (t) => { UDPClient.instance.Send(NetConfig.cam_left_off); };
         Transform t_cam_right = this.transform.Find("bg_yuntai/btn_arrow_right");
-        EventTriggerListener.Get(t_cam_down).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_right); };
+        EventTriggerListener.Get(t_cam_right).onDown += (t) => { UDPClient.instance.Send(NetConfig.cam_right_on); };
+        EventTriggerListener.Get(t_cam_right).onUp += (t) => { UDPClient.instance.Send(NetConfig.cam_right_off); };
 
         //Flot.
         Transform t_flot_foward = this.transform.Find("middle/btn_flot_up");
-        EventTriggerListener.Get(t_flot_foward).onDown += (t) => { UDPClient.instance.Send(NetConfig.flot_foward); };
+        EventTriggerListener.Get(t_flot_foward).onDown += (t) => { UDPClient.instance.Send(NetConfig.flot_foward_on); };
+        EventTriggerListener.Get(t_flot_foward).onUp += (t) => { UDPClient.instance.Send(NetConfig.flot_foward_off); };
         Transform t_flot_back = this.transform.Find("middle/btn_flot_down");
-        EventTriggerListener.Get(t_flot_back).onDown += (t) => { UDPClient.instance.Send(NetConfig.flot_back); };
+        EventTriggerListener.Get(t_flot_back).onDown += (t) => { UDPClient.instance.Send(NetConfig.flot_back_on); };
+        EventTriggerListener.Get(t_flot_back).onUp += (t) => { UDPClient.instance.Send(NetConfig.flot_back_off); };
 
         #region“单机”
         /*
